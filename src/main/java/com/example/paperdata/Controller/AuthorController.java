@@ -1,6 +1,8 @@
 package com.example.paperdata.Controller;
 
+import com.example.paperdata.Service.AuthorService;
 import com.example.paperdata.VO.ResponseVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/author")
 public class AuthorController {
+    @Autowired
+    AuthorService authorService;
 
     /**
      * 获得作者详细信息
@@ -22,7 +26,7 @@ public class AuthorController {
      */
     @RequestMapping(value = "/info",method = RequestMethod.GET)
     public ResponseVO getAuthorById(@RequestParam("id")String id){
-        return null;
+        return authorService.getAuthorById(id);
     }
 
     /**
@@ -31,7 +35,7 @@ public class AuthorController {
      */
     @RequestMapping(value = "/top",method = RequestMethod.GET)
     public ResponseVO getTop20Author(){
-        return null;
+        return authorService.getTop20Author();
     }
 
 }

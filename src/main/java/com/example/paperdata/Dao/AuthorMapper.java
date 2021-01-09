@@ -1,7 +1,10 @@
 package com.example.paperdata.Dao;
 
+import com.example.paperdata.PO.Author;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author zcy
@@ -12,4 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Mapper
 public interface AuthorMapper {
+    public Author getAuthorById();
+    public List<Author> getTopAuthor();
+
 }

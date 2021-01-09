@@ -3,6 +3,8 @@ package com.example.paperdata.Dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author zcy
  * @version 1.0
@@ -12,4 +14,5 @@ import org.springframework.stereotype.Service;
 @Service
 @Mapper
 public interface AffiliationMapper {
+    List<String> getTop20Affiliation();
 }

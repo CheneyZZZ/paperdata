@@ -1,6 +1,8 @@
 package com.example.paperdata.Controller;
 
+import com.example.paperdata.Service.ArticleService;
 import com.example.paperdata.VO.ResponseVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
+    @Autowired
+    ArticleService articleService;
 
     /**
      * 获得文章详细信息
@@ -23,7 +27,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/info",method = RequestMethod.GET)
     public ResponseVO getArticleById(@RequestParam("id")String id){
-        return null;
+        return articleService.getArticleById(id);
     }
 
     /**
@@ -35,7 +39,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/search",method = RequestMethod.GET)
     public ResponseVO searchArticles(@RequestParam("year")String year,@RequestParam("conference")String conference,@RequestParam("keys")String keys){
-        return null;
+        return articleService.searchArticles(year,conference,keys);
     }
 
     /**
@@ -44,7 +48,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/yearly",method = RequestMethod.GET)
     public ResponseVO getYearlyCount(){
-        return null;
+        return articleService.getYearlyCount();
     }
 
     /**
@@ -53,7 +57,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/terms",method = RequestMethod.GET)
     public ResponseVO getTop50Terms(){
-        return null;
+        return articleService.getTop50Terms();
     }
 
     /**
@@ -62,7 +66,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/topcitation",method = RequestMethod.GET)
     public ResponseVO getTop20Citation(){
-        return null;
+        return articleService.getTop20Citation();
     }
 
     /**
@@ -71,7 +75,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "relation", method = RequestMethod.GET)
     public ResponseVO getRelationBetweenCitAndRef(){
-        return null;
+        return articleService.getRelationBetweenCitAndRef();
     }
 
     /**
@@ -80,7 +84,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "hotword",method = RequestMethod.GET)
     public ResponseVO getHotwords(){
-        return null;
+        return articleService.getHotwords();
     }
 
 

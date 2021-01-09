@@ -7,11 +7,6 @@ package com.example.paperdata.PO;
  */
 public class Article {
     private String id;
-
-    public String getTitle() {
-        return title;
-    }
-
     private String title;
     private String conference;
     private String year;
@@ -40,6 +35,10 @@ public class Article {
 
     public String getId() {
         return id;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getConference() {

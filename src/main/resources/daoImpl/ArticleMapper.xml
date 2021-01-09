@@ -25,6 +25,22 @@
         select * from hotword
     </select>
 
+    <select id="searchArticlesWithYearAndConf" resultMap="simpleArticle">
+        select id, title, conference, year from article where conference=#{conference} and year=#{year} and title like '%${key}%'
+    </select>
+
+    <select id="searchArticlesWithYear" resultMap="simpleArticle">
+        select id, title, conference, year from article where year=#{year} and title like '%${key}%'
+    </select>
+
+    <select id="searchArticlesWithConf" resultMap="simpleArticle">
+        select id, title, conference, year from article where conference=#{conference} and title like '%${key}%'
+    </select>
+
+    <select id="searchArticles" resultMap="simpleArticle">
+        select id, title, conference, year from article where title like '%${key}%'
+    </select>
+
     <resultMap id="Article" type="com.example.paperdata.PO.Article">
         <result column="id" property="id"></result>
         <result column="title" property="title"></result>
@@ -36,6 +52,13 @@
         <result column="abstract" property="text"></result>
         <result column="keywords" property="keywords"></result>
         <result column="IEEE_terms" property="IEEE_terms"></result>
+    </resultMap>
+
+    <resultMap id="simpleArticle" type="com.example.paperdata.PO.SimpleArticle">
+        <result column="id" property="id"></result>
+        <result column="title" property="title"></result>
+        <result column="conference" property="conference"></result>
+        <result column="year" property="year"></result>
     </resultMap>
 
     <resultMap id="yearlyCount" type="com.example.paperdata.PO.Yearlyarticlecount">

@@ -16,7 +16,10 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper {
     public Article getArticleById(String id);
-    public List<Article> searArticles(String year,String conferece,String keys);
+    public List<SimpleArticle> searchArticlesWithYearAndConf(String year,String conferece,String key);
+    public List<SimpleArticle> searchArticlesWithYear(String year,String key);
+    public List<SimpleArticle> searchArticlesWithConf(String conference,String key);
+    public List<SimpleArticle> searchArticles(String key);
     public List<Yearlyarticlecount> getYearlyCount();
     public List<IEEE_term> getTop50Terms();
     public List<Top20citationsarticle> getTop20CitAricle();

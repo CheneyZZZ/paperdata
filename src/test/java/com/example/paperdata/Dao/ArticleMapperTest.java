@@ -23,6 +23,58 @@ public class ArticleMapperTest {
     @Autowired
     ArticleMapper articleMapper;
 
+
+    //A fully automated greedy square jigsaw puzzle solver
+    @Test
+    public void seachArticlesTest(){
+        List<SimpleArticle> res = articleMapper.searchArticles("automated");
+        boolean flag = false;
+        for(SimpleArticle article:res){
+            if (article.getTitle().equals("A fully automated greedy square jigsaw puzzle solver")){
+                flag=true;
+            }
+        }
+        Assert.assertTrue(flag);
+    }
+
+    //Optimal similarity registration of volumetric images
+    @Test
+    public void seachArticlesWithYearTest(){
+        List<SimpleArticle> res = articleMapper.searchArticlesWithYear("2011","registration of");
+        boolean flag = false;
+        for(SimpleArticle article:res){
+            if (article.getTitle().equals("Optimal similarity registration of volumetric images")){
+                flag=true;
+            }
+        }
+        Assert.assertTrue(flag);
+    }
+
+    //Neural Rendering for Game Character Auto-creation
+    @Test
+    public void seachArticlesWithConfTest(){
+        List<SimpleArticle> res = articleMapper.searchArticlesWithConf("IEEE Transactions on Pattern Analysis and Machine Intelligence","auto-creation");
+        boolean flag = false;
+        for(SimpleArticle article:res){
+            if (article.getTitle().equals("Neural Rendering for Game Character Auto-creation")){
+                flag=true;
+            }
+        }
+        Assert.assertTrue(flag);
+    }
+
+    @Test
+    public void seachArticlesWithYearAndConfTest(){
+        List<SimpleArticle> res = articleMapper.searchArticlesWithYearAndConf("2019","2019 IEEE/CVF International Conference on Computer Vision (ICCV)","floor");
+        boolean flag = false;
+        for(SimpleArticle article:res){
+            if (article.getTitle().equals("Floor-SP: Inverse CAD for Floorplans by Sequential Room-Wise Shortest Path")){
+                flag=true;
+            }
+        }
+        Assert.assertTrue(flag);
+    }
+
     @Test
     public void getArticleTest(){
         Article article = articleMapper.getArticleById("5432214");

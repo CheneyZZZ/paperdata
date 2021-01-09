@@ -26,19 +26,19 @@
     </select>
 
     <select id="searchArticlesWithYearAndConf" resultMap="simpleArticle">
-        select id, title, conference, year from article where conference=#{conference} and year=#{year} and title like '%${key}%'
+        select id, title, conference, year from article where conference=#{conference} and year=#{year} and title like CONCAT(CONCAT('%', #{key}), '%')
     </select>
 
     <select id="searchArticlesWithYear" resultMap="simpleArticle">
-        select id, title, conference, year from article where year=#{year} and title like '%${key}%'
+        select id, title, conference, year from article where year=#{year} and title like CONCAT(CONCAT('%', #{key}), '%')
     </select>
 
     <select id="searchArticlesWithConf" resultMap="simpleArticle">
-        select id, title, conference, year from article where conference=#{conference} and title like '%${key}%'
+        select id, title, conference, year from article where conference=#{conference} and title like CONCAT(CONCAT('%', #{key}), '%')
     </select>
 
     <select id="searchArticles" resultMap="simpleArticle">
-        select id, title, conference, year from article where title like '%${key}%'
+        select id, title, conference, year from article where title like CONCAT(CONCAT('%', #{key}), '%')
     </select>
 
     <resultMap id="Article" type="com.example.paperdata.PO.Article">

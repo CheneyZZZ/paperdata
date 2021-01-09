@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.paperdata.Dao.ArticleMapper">
+    <select id="getArticleById" resultMap="Article">
+        select * from article where id=#{id}
+    </select>
+
+    <select id="getYearlyCount" resultMap="yearlyCount">
+        select * from yearlyarticlecount
+    </select>
+
+    <select id="getTop50Terms" resultMap="IEEE_term">
+        select * from top50terms
+    </select>
+
+    <select id="getTop20CitAricle" resultMap="TopCitArticle">
+        select * from top20citationsarticle
+    </select>
+
+    <select id="getRelations" resultMap="Relationbetweenrefandcit">
+        select * from relationbetweenrefandcit
+    </select>
+
+    <select id="gethotwords" resultMap="Hotword">
+        select * from hotword
+    </select>
+
+    <resultMap id="Article" type="com.example.paperdata.PO.Article">
+        <result column="id" property="id"></result>
+        <result column="title" property="title"></result>
+        <result column="conference" property="conference"></result>
+        <result column="year" property="year"></result>
+        <result column="reference_count" property="reference_count"></result>
+        <result column="citation_count" property="citation_count"></result>
+        <result column="pdf_link" property="pdf_link"></result>
+        <result column="abstract" property="text"></result>
+        <result column="keywords" property="keywords"></result>
+        <result column="IEEE_terms" property="IEEE_terms"></result>
+    </resultMap>
+
+    <resultMap id="yearlyCount" type="com.example.paperdata.PO.Yearlyarticlecount">
+        <result column="count(id)" property="count"></result>
+        <result column="year" property="year"></result>
+    </resultMap>
+
+    <resultMap id="IEEE_term" type="com.example.paperdata.PO.IEEE_term">
+        <result column="word" property="word"></result>
+        <result column="count" property="count"></result>
+    </resultMap>
+
+    <resultMap id="TopCitArticle" type="com.example.paperdata.PO.Top20citationsarticle">
+        <result column="citations" property="citations"></result>
+        <result column="title" property="title"></result>
+    </resultMap>
+
+    <resultMap id="Relationbetweenrefandcit" type="com.example.paperdata.PO.Relationbetweenrefandcit">
+        <result column="ref" property="ref"></result>
+        <result column="cit" property="cit"></result>
+    </resultMap>
+
+    <resultMap id="Hotword" type="com.example.paperdata.PO.Hotword">
+        <result column="word" property="word"></result>
+        <result column="count" property="count"></result>
+    </resultMap>
+
+</mapper>

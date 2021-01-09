@@ -7,6 +7,11 @@ package com.example.paperdata.PO;
  */
 public class Article {
     private String id;
+
+    public String getTitle() {
+        return title;
+    }
+
     private String title;
     private String conference;
     private String year;

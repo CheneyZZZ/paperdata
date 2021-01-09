@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.paperdata.Dao.AuthorMapper">
+    <select id="getAuthorById" resultMap="Author">
+        select * from author where id = #{id}
+    </select>
+
+    <select id="getTopAuthor" resultMap="TopAuthor">
+        select * from top20author
+    </select>
+
+    <resultMap id="Author" type="com.example.paperdata.PO.Author">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+    </resultMap>
+
+    <resultMap id="TopAuthor" type="com.example.paperdata.PO.Top20author">
+        <result column="articles" property="articles"></result>
+        <result column="name" property="name"></result>
+    </resultMap>
+
+</mapper>

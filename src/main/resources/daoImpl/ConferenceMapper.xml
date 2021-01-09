@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.paperdata.Dao.ConferenceMapper">
+    <select id="getConferenceCount" resultMap="conferencerank">
+        select * from conferencerank
+    </select>
+
+    <resultMap id="conferencerank" type="com.example.paperdata.PO.Conferencerank">
+        <result column="count" property="count"></result>
+        <result column="conference" property="conference"></result>
+    </resultMap>
+</mapper>

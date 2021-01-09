@@ -35,7 +35,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ResponseVO searchArticles(String year,String conference,String keywords){
         try {
             Set<SimpleArticle> res = new HashSet<>();
-            String[] keys = keywords.split(" ");
+            String[] keys = keywords.split("\\s+");
             for(String key:keys){
                 List<SimpleArticle> temp;
                 if(year.equals("all")&&conference.equals("all")){

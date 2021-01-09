@@ -51,4 +51,24 @@ public class SimpleArticle {
     public void setYear(String year) {
         this.year = year;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj==null){
+            return false;
+        }
+        if(this == obj){
+            return true;
+        }
+        if(obj instanceof SimpleArticle){
+            SimpleArticle other = (SimpleArticle)obj;
+            return (this.id.equals(other.getId()))&&(this.title.equals(other.getTitle()))&&(this.conference.equals(other.getConference()))&&(this.year.equals(other.getYear()));
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return (this.id.hashCode() + this.title.hashCode()) * (this.conference.hashCode() + this.year.hashCode());
+    }
 }

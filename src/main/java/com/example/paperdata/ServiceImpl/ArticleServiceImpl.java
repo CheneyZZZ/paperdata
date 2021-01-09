@@ -7,6 +7,7 @@ import com.example.paperdata.VO.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -50,7 +51,7 @@ public class ArticleServiceImpl implements ArticleService {
                     res.add(sa);
                 }
             }
-            return ResponseVO.buildSuccess(res);
+            return ResponseVO.buildSuccess(new ArrayList<>(res));
         }catch (Exception e){
             return ResponseVO.buildFailure("error");
         }

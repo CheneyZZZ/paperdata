@@ -38,4 +38,9 @@ public class AuthorController {
         return authorService.getTop20Author();
     }
 
+    @RequestMapping(value = "/articles",method = RequestMethod.GET)
+    public ResponseVO getAuthorArticles(@RequestParam("id")String id){
+        return authorService.getAuthorArticle(id);
+    }
+
 }

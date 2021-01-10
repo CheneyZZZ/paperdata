@@ -2,6 +2,7 @@ package com.example.paperdata.ServiceImpl;
 
 import com.example.paperdata.Dao.AuthorMapper;
 import com.example.paperdata.PO.Author;
+import com.example.paperdata.PO.SimpleArticle;
 import com.example.paperdata.PO.Top20author;
 import com.example.paperdata.Service.AuthorService;
 import com.example.paperdata.VO.ResponseVO;
@@ -32,6 +33,16 @@ public class AuthorSericeImpl implements AuthorService {
     public ResponseVO getTop20Author(){
         try {
             List<Top20author> res = authorMapper.getTopAuthor();
+            return ResponseVO.buildSuccess(res);
+        }catch (Exception e){
+            return ResponseVO.buildFailure("error");
+        }
+    }
+
+    @Override
+    public ResponseVO getAuthorArticle(String id){
+        try {
+            List<SimpleArticle> res = authorMapper.getAuthorArticle(id);
             return ResponseVO.buildSuccess(res);
         }catch (Exception e){
             return ResponseVO.buildFailure("error");

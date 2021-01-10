@@ -9,6 +9,10 @@
         select * from top20author
     </select>
 
+    <select id="getAuthorArticle" resultMap="simpleArticle">
+        select id, title, conference, year from article where id in (select article_id from article_author where author_id = #{id})
+    </select>
+
     <resultMap id="Author" type="com.example.paperdata.PO.Author">
         <result column="id" property="id"></result>
         <result column="name" property="name"></result>
@@ -17,6 +21,13 @@
     <resultMap id="TopAuthor" type="com.example.paperdata.PO.Top20author">
         <result column="articles" property="articles"></result>
         <result column="name" property="name"></result>
+    </resultMap>
+
+    <resultMap id="simpleArticle" type="com.example.paperdata.PO.SimpleArticle">
+        <result column="id" property="id"></result>
+        <result column="title" property="title"></result>
+        <result column="conference" property="conference"></result>
+        <result column="year" property="year"></result>
     </resultMap>
 
 </mapper>

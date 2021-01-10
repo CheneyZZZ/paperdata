@@ -22,7 +22,7 @@
     </select>
 
     <select id="gethotwords" resultMap="Hotword">
-        select * from hotword order by count desc limit 100
+        select * from hotword order by count desc limit 20
     </select>
 
     <select id="searchArticlesWithYearAndConf" resultMap="simpleArticle">

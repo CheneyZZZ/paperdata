@@ -10,4 +10,5 @@ import com.example.paperdata.VO.ResponseVO;
 public interface AuthorService {
     public ResponseVO getAuthorById(String id);
     public ResponseVO getTop20Author();
+    public ResponseVO getAuthorArticle(String id);
 }

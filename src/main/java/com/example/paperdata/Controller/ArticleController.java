@@ -2,11 +2,9 @@ package com.example.paperdata.Controller;
 
 import com.example.paperdata.Service.ArticleService;
 import com.example.paperdata.VO.ResponseVO;
+import com.example.paperdata.VO.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zcy
@@ -32,14 +30,12 @@ public class ArticleController {
 
     /**
      * 搜索文章
-     * @param year 年份
-     * @param conference 会议
-     * @param keys 搜索关键字
+     * @param searchForm
      * @return
      */
-    @RequestMapping(value = "/search",method = RequestMethod.GET)
-    public ResponseVO searchArticles(@RequestParam("year")String year,@RequestParam("conference")String conference,@RequestParam("keys")String keys){
-        return articleService.searchArticles(year,conference,keys);
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    public ResponseVO searchArticles(@RequestBody SearchForm searchForm){
+        return articleService.searchArticles(searchForm.getYear(),searchForm.getConference(),searchForm.getKeys());
     }
 
     /**

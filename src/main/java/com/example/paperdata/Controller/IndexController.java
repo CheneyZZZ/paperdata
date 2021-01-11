@@ -16,4 +16,9 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String getOasisUserAdvanced() {
+        return "search";
+    }
 }

@@ -34,15 +34,16 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ResponseVO searchArticles(String year,String conference,String keywords){
         try {
+            System.out.println(year+"~y  "+conference+"~c  "+keywords+"~k  ");
             Set<SimpleArticle> res = new HashSet<>();
             String[] keys = keywords.split("\\s+");
             for(String key:keys){
                 List<SimpleArticle> temp;
-                if(year.equals("all")&&conference.equals("all")){
+                if(year.length()==0&&conference.length()==0){
                     temp = articleMapper.searchArticles(key);
-                }else if(year.equals("all")){
+                }else if(year.length()==0){
                     temp = articleMapper.searchArticlesWithConf(conference,key);
-                }else if(conference.equals("all")){
+                }else if(conference.length()==0){
                     temp = articleMapper.searchArticlesWithYear(year,key);
                 }else {
                     temp = articleMapper.searchArticlesWithYearAndConf(year,conference,key);

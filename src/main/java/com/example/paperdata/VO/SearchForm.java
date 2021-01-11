@@ -9,7 +9,7 @@ public class SearchForm {
     private String year;
     private String conference;
     private String keys;
-    
+
     public SearchForm(){}
 
     public SearchForm(String year, String conference, String keys) {

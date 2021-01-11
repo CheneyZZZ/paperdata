@@ -60,7 +60,7 @@ public class ArticleController {
      * 被引用最多的20篇文章
      * @return
      */
-    @RequestMapping(value = "/topcitation",method = RequestMethod.GET)
+    @RequestMapping(value = "/top",method = RequestMethod.GET)
     public ResponseVO getTop20Citation(){
         return articleService.getTop20Citation();
     }
@@ -78,7 +78,7 @@ public class ArticleController {
      * 所有文章的最热关键字
      * @return
      */
-    @RequestMapping(value = "hotword",method = RequestMethod.GET)
+    @RequestMapping(value = "/hotword",method = RequestMethod.GET)
     public ResponseVO getHotwords(){
         return articleService.getHotwords();
     }

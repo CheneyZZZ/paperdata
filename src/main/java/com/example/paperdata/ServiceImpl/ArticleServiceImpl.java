@@ -31,7 +31,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ResponseVO searchArticles(String year,String conference,String keywords){
         try {
-            System.out.println(year+"~y  "+conference+"~c  "+keywords+"~k  ");
+            //System.out.println(year+"~y  "+conference+"~c  "+keywords+"~k  ");
             Set<SimpleArticle> res = new HashSet<>();
             String[] keys = keywords.split("\\s+");
             for(String key:keys){

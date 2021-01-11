@@ -9,12 +9,12 @@ $(document).ready(function () {
         console.log("OK");
         var documentForm={
             year:$("#input-year").val(),
-            conference:$("#input-conference").val(),
+            conference:"",
             keys:$("#input-keywords").val()
         };
         console.log(documentForm.keys);
         searchForm.push(documentForm.year);
-        searchForm.push(documentForm.conference);
+        searchForm.push("");
         searchForm.push(documentForm.keys);
         console.log(searchForm);
         console.log(documentForm.keys);

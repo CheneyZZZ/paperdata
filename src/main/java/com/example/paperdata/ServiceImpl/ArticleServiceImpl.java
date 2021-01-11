@@ -7,10 +7,7 @@ import com.example.paperdata.VO.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author zcy
@@ -61,6 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ResponseVO getYearlyCount(){
         try {
             List<Yearlyarticlecount> res = articleMapper.getYearlyCount();
+            Collections.reverse(res);
             return ResponseVO.buildSuccess(res);
         }catch (Exception e){
             return ResponseVO.buildFailure("error");

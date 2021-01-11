@@ -35,6 +35,9 @@ public class ArticleController {
      */
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     public ResponseVO searchArticles(@RequestBody SearchForm searchForm){
+        System.out.println(searchForm.getYear());
+        System.out.println(searchForm.getConference());
+        System.out.println(searchForm.getKeys());
         return articleService.searchArticles(searchForm.getYear(),searchForm.getConference(),searchForm.getKeys());
     }
 
